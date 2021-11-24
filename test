@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Преобразуване на градуса в радиани</title>
+    <style>
+        *{box-sizing: border-box;}
+        p{
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        span#deg-unit,span#rad-unit{
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            border-bottom: 2px solid gray;
+            color: firebrick;
+        }
+    </style>
+</head>
+<body>
+    <h1>Преобразуване на градуса в радиани</h1>
+    <input type="number" id="unit">
+    <input type="button" value="Конвертиране" onclick="showResult()">
+    <p><span id="deg-unit"></span> градуси = <span id="rad-unit"></span></p>
+
+    <script>
+        function getUnit(){
+            return Number(document.getElementById("unit").value);
+        }
+
+        function convertDeg(deg){
+            let rad = deg * Math.PI / 180;
+            return rad.toFixed(4);
+        }
+
+        function showResult(){
+            let degree = getUnit();
+            document.getElementById("deg-unit").innerHTML = degree;
+            document.getElementById("rad-unit").innerHTML = convertDeg(degree);
+        }
+
+    </script>
+    
+</body>
+</html>
